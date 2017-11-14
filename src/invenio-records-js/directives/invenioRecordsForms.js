@@ -74,6 +74,7 @@ function invenioRecordsForm($q, schemaFormDecorators, InvenioRecordsAPI,
       * @param {String} prop - The property path to retrieve.
       */
     var getProp = function (obj, prop) {
+      if (prop === '.') return obj;
       return prop.split('.').reduce(function(data, item) {
         return data[item];
       }, obj);
